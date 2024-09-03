@@ -1,0 +1,23 @@
+.app-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .user-profile, .user-activities {
+    margin-bottom: 20px;
+  }
+  
+  .user-activities ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-activities li {
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .app-container {
+      padding: 10px;
+    }
+  }

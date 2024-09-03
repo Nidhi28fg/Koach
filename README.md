@@ -1,30 +1,50 @@
-# Koach
-Create a user dashboard that fetches and displays user data from a REST API. The dashboard should include basic user information and a list of user activities. This question will assess your skills in React.js, and REST API integration.
+# React + TypeScript + Vite
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Requirements:
+Currently, two official plugins are available:
 
-1. Setup:
-a. Initialize a new React project.
-b. Fetch data from a mock REST API endpoint (you can use a public API like
-jsonplaceholder.typicode.com/users for user data and jsonplaceholder.typicode.com/posts for user activities).
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-2. Components:
-a. Create a UserProfile component that displays the user's basic information (e.g. name, email, phone).
-b. Create a User activities component that displays a list of user activities (e.g., posts).
+## Expanding the ESLint configuration
 
-3. Design:
-a. Use HTML and CSS to style your components.
-b. Ensure the design is user-friendly and responsive.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-4. Functionality:
-a. Fetch user data and user activities from the API.
-b. Display user data in the UserProfile component.
-c. Display a list of user activities in the User activities component.
-d. Implement loading states and error handling for data fetching.
+- Configure the top-level `parserOptions` property like this:
 
-5. Bonus:
-a. Use TypeScript to define the types of user data and activities.
-b. Implement basic routing to navigate between different users (e.g., /users/1, /users/2).
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-Share the deployed and GitHub links
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
