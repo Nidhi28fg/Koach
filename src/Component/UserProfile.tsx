@@ -32,7 +32,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
         setUser(response.data);
         setLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setError('Failed to fetch user data');
         setLoading(false);
       });

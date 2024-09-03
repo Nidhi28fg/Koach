@@ -1,4 +1,3 @@
-import React from 'react'
 import { useParams } from 'react-router-dom' 
 import UserActivities from '../Component/UserActivities'
 import UserProfile from '../Component/UserProfile'

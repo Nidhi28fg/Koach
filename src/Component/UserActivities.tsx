@@ -23,7 +23,7 @@ const UserActivities: React.FC<UserActivitiesProps> = ({ userId }) => {
         setPosts(response.data);
         setLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setError('Failed to fetch user activities');
         setLoading(false);
       });
