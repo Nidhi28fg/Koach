@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Loading from "Loading.gif";
+import Loading from "./Loading.gif";
 
 
 
@@ -34,8 +34,12 @@ const UserActivities: React.FC<UserActivitiesProps> = ({ userId }) => {
       });
   }, [userId]);
 
-  if (loading) return <p>{Loading}</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return (
+    <div className="flex justify-center items-center h-screen">
+      <img src={Loading} alt="Loading..." className="w-18 h-18" />
+    </div>
+  );
+  if (error) return <p> {error}</p>;
 
   return (
     <div className="user-activities bg-gradient-to-br from-indigo-600 to-blue-500 p-6 rounded-xl shadow-lg max-w-5xl mx-auto mt-8">

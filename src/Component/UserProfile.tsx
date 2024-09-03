@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Loading from "../Loading.gif";
+import Loading from "./Loading.gif";
 
 interface UserProfileProps {
   userId: string;
@@ -39,7 +39,11 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
       });
   }, [userId]);
 
-  if (loading) return <p>{Loading}</p>;
+  if (loading) return (
+    <div className="flex justify-center items-center h-screen">
+      <img src={Loading} alt="Loading..." className="w-18 h-18" />
+    </div>
+  );
   if (error) return <p>{error}</p>;
 
   return (
