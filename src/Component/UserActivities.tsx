@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loading from '../Loading.gif';
+
 
 interface UserActivitiesProps {
   userId: string;
@@ -17,6 +19,7 @@ const UserActivities: React.FC<UserActivitiesProps> = ({ userId }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
       .then((response) => {
@@ -29,7 +32,7 @@ const UserActivities: React.FC<UserActivitiesProps> = ({ userId }) => {
       });
   }, [userId]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>{Loading}</p>;
   if (error) return <p>{error}</p>;
 
   return (

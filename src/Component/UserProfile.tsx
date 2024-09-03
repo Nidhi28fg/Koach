@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loading from '../Loading.gif';
 
 interface UserProfileProps {
   userId: string;
@@ -38,7 +39,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
       });
   }, [userId]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>{Loading}</p>;
   if (error) return <p>{error}</p>;
 
   return (
